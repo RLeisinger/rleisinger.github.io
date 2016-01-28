@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Drupal Security | January 2016</title>
+  <meta name="description" content="Drupal Security | January 2016">
+  <meta name="author" content="Ryan Leisinger">
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://getskeleton.com/dist/css/normalize.css">
+   <link rel="stylesheet" href="http://getskeleton.com/dist/css/skeleton.css">
+  <link rel="stylesheet" href="http://getskeleton.com/examples/landing/css/custom.css">
+ <STYLE>
+  
+ </STYLE>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<h1>Drupal Security</h1>
+
+<h2>Intro</h2>
+<div id="accordion">
+<h3>History</h3>
+<div>
+Minor security issues. The security group created a rating system x/25. The highest scores were 15/25.<br>
+Until…
+</div>
+
+<h3>October 2014 – 25/25</h3>
+<div>
+<blockquote><i>
+foreach ($data as $i => $value) { <br>
+needed to be<br>
+foreach (array_values($data) as $i => $value) {</i> <br>
+</blockquote>
+</div>
+
+<h3>Media</h3>
+<div>
+<p>
+<a href="http://www.bbc.com/news/technology-29846539" target="_blank">Reports of 12 million sites being hacked</a> - BBC<br>
+<a href="https://www.ostraining.com/blog/drupal/8-things-drupal-security/" target="_target">But actually</a>, there are less than 1 million Drupal sites with between 10% and 90% being hack-able.
+</p>
+</div>
+
+<!-- next -->
+Security Considerations
+
+
+<h3>HTTPS<h3>
+	<div>
+	<p>
+<a href="https://18f.gsa.gov/2014/11/13/why-we-use-https-in-every-gov-website-we-make/" target="_blank">
+Why we use HTTPS for every .gov we make</a> - 18F
+</p>
+</div>
+
+<h3>File Permissions<h3>
+	<div>
+principle of least privilege<br>
+<a href="https://www.drupal.org/node/244924" target="_blank">Securing file permissions and ownership</a> - Drupal.org Last updated January 18, 2016. Created on April 10, 2008.<br>
+<a href="https://www.drupal.org/project/security_review" target="_blank">Security Review</a>
+</div>
+<h3>Monitor core updates<h3>
+	<div>
+<a href="https://www.drupal.org/security" target="_blank">Security advisories</a><br>
+<a href="https://www.drupal.org/security/rss.xml" target="_blank">RSS Feed</a><br>
+<a href="https://twitter.com/drupalsecurity" target="_blank">Twitter</a><br>
+</div>
+<h3>Modules<h3>
+	<div>
+Existing Security Modules<br>
+<a href="https://www.drupal.org/project/security_review" target="_blank">Security Review</a>
+</div>
+
+<h3>Receiving Modules</h3>
+<div>
+	Code audit<br>
+	Check Module stats<br>
+	Example <a href="https://www.drupal.org/project/feeds" target="_blank">Feeds</a>
+<ul>
+<li>Maintenance status:</li>
+<li>Development status:</li>
+<li>Module categories:</li>
+<li>Reported installs: </li>
+<li>Downloads:</li>
+</ul>
+</div>
+
+<h3>Code compare</h3>
+<div>
+		<a href="http://www.scootersoftware.com/" target="_blank">Beyond Compare</a><br>
+		<a href="http://github.com" target="_blank">GitHub</a><br>
+</div>
+</div>
+ <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+ <script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
+</body>
+</html>
