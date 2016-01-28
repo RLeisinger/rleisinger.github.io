@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<section>
+<div id="accordion">
 <h1>
 Drupal Security Presentation
 </h1>
@@ -53,9 +53,10 @@ But actually, there are less than 1 million Drupal sites with between 10% and 90
 <h2>Security Considerations</h2>
 
 <h3>HTTPS<h3>
+	<p>
 <a href="https://18f.gsa.gov/2014/11/13/why-we-use-https-in-every-gov-website-we-make/" target="_blank">
 Why we use HTTPS for every .gov we make</a> - 18F
-
+</p>
 <h3>File Permissions<h3>
 principle of least privilege<br>
 <a href="https://www.drupal.org/node/244924" target="_blank">Securing file permissions and ownership</a> - Drupal.org Last updated January 18, 2016. Created on April 10, 2008.<br>
@@ -83,8 +84,15 @@ Downloads:
 Code compare
 		Beyond Compare
 		GitHub
-</section>
-  <SCRIPT>
-  </SCRIPT>
+</div>
+ <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+ <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+ <script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
 </body>
 </html>
