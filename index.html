@@ -15,75 +15,82 @@
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <style>
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-  
-    main > * {
-    display: none;
+body {
+   font-family: 'Roboto', sans-serif;
+  font-size: 120%;
+  font-family: sans-serif;
+  max-width: 40em;
+  margin: 0 auto;
+}
+
+nav {
+  text-align: center;
+  padding: 0.5em 0;
+  border-bottom: 2px solid;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+
+/* view visibility logic and animation */
+
+main > * {
+  display: none;
 }
 
 main > *:last-child {
-    display: block;
+  display: block;
 }
 
 @keyframes pulse {
-    0% { transform: scale(1) }
-    50% { transform: scale(1.05) }
-    100% { transform: scale(1) }
+  0% { transform: scale(1) }
+  50% { transform: scale(1.05) }
+  100% { transform: scale(1) }
 }
 
 main > *:target {
-    display: block;
-    animation: pulse 0.5s linear 1;
+  display: block;
+  animation: pulse 0.5s linear 1;
 }
 
 main > *:target ~ * {
-    display: none;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    display: inline;
+  display: none;
 }
   </style>
 </head>
 
 <body>
-  <nav role="navigation">
-    <ul>
-        <li><a href="#the-default-view">projects</a></li>
-        <li><a href="#some-view">blog</a></li>
-        <li><a href="#another-view">other</a></li>
-    </ul>
+<nav role="navigation">
+  <ul>
+    <li><a href="#the-default-view">the default view</a></li>
+    <li><a href="#some-view">some view</a></li>
+    <li><a href="#another-view">another view</a></li>
+  </ul>
 </nav>
-<header><h1>Ryan Leisinger on GitHub</h1></header>
- 
-  <main role="main">
-   
-    
-    <div id="the-default-view">
-        <h2>projects</h2>
-        <!-- … -->
-    </div>
-   
-        <div id="some-view">
-        <h2>blog</h2>
-        <!-- … -->
-    </div>
-     <div id="another-view">
-        <h2>other</h2>
-        <!-- … -->
-    </div>
+<main role="main">
+  <div id="some-view">
+    <h1>Some view</h1>
+    <p>This is one of any number of views that are reachable by linking to its <code>id</code> / hash identifier.</p>
+  </div>
+  <div id="another-view">
+    <h1>Another view</h1>
+    <p>This is one of any number of views that are reachable by linking to its <code>id</code> / hash identifier.</p>
+  </div>
+  <div id="the-default-view">
+    <h1>The default view</h1>
+    <p>This view is visible by default when the user first arrives at the app.</p>
+  </div>
 </main>
 <footer>
-  
+  footer links would live here
 </footer>
   <script src="js/scripts.js"></script>
+  <script>
+  window.addEventListener('hashchange', function() {
+	console.log('this view\'s id is', window.location.hash.substr(1));
+  });
+</script>
 </body>
 </html>
