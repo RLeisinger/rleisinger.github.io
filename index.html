@@ -58,10 +58,48 @@ main > *:target {
 main > *:target ~ * {
   display: none;
 }
+.postdate {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+.month, .day, .year { 
+  position: absolute; 
+  text-indent: -1000em;
+  background-image: url(/wp-content/themes/ljq/images/dates.png);
+  background-repeat: no-repeat;
+}
+.month { top: 2px; left: 0; width: 32px; height: 24px;}
+.day { top: 25px; left: 0; width: 32px; height: 25px;}
+.year { bottom: 0; right: 0; width: 17px; height: 48px;}
+
+.m-01 { background-position: 0 4px;}
+.m-02 { background-position: 0 -28px;}
+.m-03 { background-position: 0 -57px;}
+... more like this ...
+
+.d-01 { background-position: -50px 0;}
+.d-02 { background-position: -50px -31px;}
+.d-03 { background-position: -50px -62px;}
+... more like this ...
+
+.y-2006 { background-position: -150px 0;}
+.y-2007 { background-position: -150px -50px;}
+.y-2008 { background-position: -150px -100px;}
+... more like this ...
+
   </style>
 </head>
 
 <body>
+<header>
+	<div class="postdate">
+        <div class="month m-06">ryan</div>
+        <div class="day d-30">leisinger</div> 
+        <div class="year y-2009">ongithub</div> 
+</div>
+</header>
 <nav role="navigation">
   <ul>
     <li><a href="#the-default-view">the default view</a></li>
