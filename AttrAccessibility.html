@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jquery attr & accessibility demo</title>
+  <style>
+  div {
+    color: #18F;
+	padding: 2px;
+  }
+  input {
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<h1>jquery attr & accessibility demo</h1>
+<form action="dostuff">
+<div class="name">Name <input type="input"></div>
+<div class="city">City <input type="text"></div>
+<div class="image">Picture <img class="mypic" src="here.pgn"></div>
+<div class="submit">Button here</div>
+</form>
+
+<script>
+$( ".mypic" ).attr({
+  alt: "Your new picture",
+  title: "it needs a title"
+});
+</script>
+ 
+</body>
+</html>
