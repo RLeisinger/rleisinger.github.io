@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lets try autocomplete</title>
+<!-- JS file -->
+<script src="js/jquery.easy-autocomplete.min.js"></script> 
+
+<!-- CSS file -->
+<link rel="stylesheet" href="js/easy-autocomplete.min.css"> 
+
+<!-- Additional CSS Themes file - not required-->
+<link rel="stylesheet" href="js/easy-autocomplete.themes.min.css"> 
+
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+</head>
+
+<body>
+<input id="provider-xml" class="form-control" placeholder="Country search" />
+				<script>
+
+				$(document).ready(function() {
+					var options = {
+						url: "countries.xml",
+
+						dataType: "xml",
+						xmlElementName: "country",
+
+						getValue: function(element) {
+							return $(element).find("name").text();
+						},
+
+						list: {
+							match: {
+								enabled: true
+							}
+						}
+					};
+
+					$("#provider-xml").easyAutocomplete(options);
+				});
+
+				</script>
+</body>
+
+</html>
