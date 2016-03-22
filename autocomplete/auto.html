@@ -37,7 +37,7 @@
 
 				$(document).ready(function() {
 										var options = {
-						url: "resources/countries.json",
+						url: "countries.json",
 
 						getValue: "name",
 
@@ -76,6 +76,33 @@
 					};
 
 					$("#provider-xml").easyAutocomplete(options);
+				});
+
+				</script>
+    <p>
+    xml dept<br>
+<input id="dept-xml" class="form-control" placeholder="Dept Search" />
+				<script>
+
+				$(document).ready(function() {
+					var options = {
+						url: "https://data.wa.gov/api/views/j4bp-2yjx/rows.xml",
+
+						dataType: "xml",
+						xmlElementName: "agency",
+
+						getValue: function(element) {
+							return $(element).find("agency").text();
+						},
+
+						list: {
+							match: {
+								enabled: true
+							}
+						}
+					};
+
+					$("#dept-xml").easyAutocomplete(options);
 				});
 
 				</script>
