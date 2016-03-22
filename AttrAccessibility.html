@@ -4,35 +4,136 @@
   <meta charset="utf-8">
   <title>jquery attr & accessibility demo</title>
   <style>
-  div {
-    color: #18F;
-	padding: 2px;
-	
-  }
-  input {
-  	padding:2px;
-  }
-  form {
-  	padding:2px;
-  	
-  }
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Helvetica, sans-serif;
+    color: 18F#;
+      }
+
+
+#page-wrap {
+	width: 660px;
+	background: white;
+	padding: 20px 50px 20px 50px;
+	margin: 20px auto;
+	min-height: 500px;
+	height: auto !important;
+	height: 500px;
+}
+
+#contact-area {
+	width: 600px;
+	margin-top: 25px;
+}
+
+input, textarea {
+	padding: 5px;
+	font-family: Helvetica, sans-serif;
+	font-size: 1.4em;
+	margin: 0px 0px 10px 0px;
+	border: 2px solid #ccc;
+}
+
+textarea {
+	height: 90px;
+}
+
+
+input.submit-button {
+	width: 100px;
+	float: right;
+}
+ 
+input.submit-button:focus
+      {
+           border: 3px solid #555;
+            transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+          
+      }
+      
+      input.submit-button:hover
+      {
+           border: 3px solid #555;
+            transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+          
+      }
+label {
+	float: left;
+	text-align: right;
+	margin-right: 15px;
+	width: 100px;
+	padding-top: 5px;
+	font-size: 1.4em;
+}
+      
+textarea:focus, input:focus {
+    border: 3px solid #555;
   
+}
+.image img {
+          width:50%;
+      }
+  #container {
+    text-align: center;
+}
+a, figure {
+    display: inline-block;
+}
+figcaption {
+    margin: 10px 0 0 0;
+    font-variant: small-caps;
+    font-family: Arial;
+    font-weight: bold;
+    color: #bb3333;
+}
+figure {
+    padding: 5px;
+}
+img:hover {
+    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+img {
+    transition: transform 0.2s;
+    -webkit-transition: -webkit-transform 0.2s;
+    -moz-transition: -moz-transform 0.2s;
+    -o-transition: -o-transform 0.2s;
+}
   </style>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
+    <div id="page-wrap">
 <h1>jquery attr & accessibility demo</h1>
+    <div id="contact-area">
 <form action="dostuff">
-<div class="name">Name <input type="input"></div>
-<div class="city">City <input type="text"></div>
-<div class="image">Picture <img class="mypic" src="here.pgn"></div>
-<div class="submit">Button here</div>
+<div class="name"><label>Name</label> <input type="text"></div>
+<div class="city"><label>City</label> <input type="text"></div>
+<div class="image"><label>Picture</label> <figure><img class="mypic" src="https://washingtonesd.files.wordpress.com/2014/12/ryan-leisinger-10-14.png?w=440"><figcaption>...</figcaption>
+</figure></div>
+<input type="submit" name="submit" value="Submit" class="submit-button" />
 </form>
-
+    </div>
+    </div>
 <script>
 $( ".mypic" ).attr({
-  alt: "Your new picture",
-  title: "it needs a title"
+  alt: "Ryan Leisinger talking",
+  title: "Ryan talking about something important."
 });
 </script>
  
