@@ -11,6 +11,13 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/styles.css?v=1.0">
 
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@ryanleisinger" />
+<meta name="twitter:title" content="WA State Dad Who Works For WA State Gov" />
+<meta name="twitter:description" content="Husband & father of 3 boys who fills his days with web accessibility, software architecture, UX, open data and inclusive design for the State of Washington" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/2257734259/profile.jpg" />
+<meta name="twitter:image:alt" content="Profile picture for Ryan Leisinger" />
+    
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -71,7 +78,7 @@ main > *:target ~ * {
 .month, .day, .year { 
   position: absolute; 
   text-indent: -1000em;
-  background-image: url(/wp-content/themes/ljq/images/dates.png);
+  background-image: url(https://cdn.css-tricks.com/wp-content/themes/ljq/images/dates.png);
   background-repeat: no-repeat;
 }
 .month { top: 2px; left: 0; width: 32px; height: 24px;}
@@ -102,31 +109,36 @@ main > *:target ~ * {
         <div class="month m-06">ryan</div>
         <div class="day d-30">leisinger</div> 
         <div class="year y-2009">ongithub</div> 
-</div>
+    </div>
 </header>
 <nav role="navigation">
   <ul>
-    <li><a href="#the-default-view">the default view</a></li>
-    <li><a href="#some-view">some view</a></li>
-    <li><a href="#another-view">another view</a></li>
+    <li><a href="#main-page">main</a></li>
+    <li><a href="#intereststresources">interests & resources</a></li>
+    <li><a href="#blogstweets">blogs & tweets</a></li>
   </ul>
 </nav>
 <main role="main">
-  <div id="some-view">
-    <h1>Some view</h1>
+  <div id="intereststresources">
+    <h1>interests & resources</h1>
     <p>This is one of any number of views that are reachable by linking to its <code>id</code> / hash identifier.</p>
   </div>
-  <div id="another-view">
-    <h1>Another view</h1>
-    <p>This is one of any number of views that are reachable by linking to its <code>id</code> / hash identifier.</p>
+  <div id="blogstweets">
+    <h1>blogs & tweets</h1>
+    <p>
+      <a class="twitter-timeline" href="https://twitter.com/ryanleisinger">Tweets by ryanleisinger</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </p>
   </div>
-  <div id="the-default-view">
-    <h1>The default view</h1>
+  <div id="main-page">
+    <h1>Ryan Leisinger</h1>
     <p>This view is visible by default when the user first arrives at the app.</p>
   </div>
 </main>
 <footer>
-  footer links would live here
+  <a class="twitter-follow-button"
+  href="https://twitter.com/TwitterDev"
+  data-size="large">
+Follow @ryanleisinger</a>
 </footer>
   <script src="js/scripts.js"></script>
   <script>
