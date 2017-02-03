@@ -1,1 +1,162 @@
+<!doctype html>
 
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Ryan Leisinger @ 32nd CSUN Assistive Technology Conference</title>
+  <meta name="description" content="Ryan Leisinger @ 32nd CSUN Assistive Technology Conference">
+  <meta name="author" content="Ryan Leisinger">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@ryanleisinger" />
+<meta name="twitter:title" content="WA State Dad Who Works To Improve Accessibility For WA State Gov" />
+<meta name="twitter:description" content="Husband & father of 3 boys who fills his days with web accessibility, software architecture, UX, open data and inclusive design for the State of Washington" />
+<meta name="twitter:image" content="https://pbs.twimg.com/profile_images/2257734259/profile.jpg" />
+<meta name="twitter:image:alt" content="Profile picture for Ryan Leisinger" />
+    
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style>
+body {
+   font-family: 'Roboto', sans-serif;
+  font-size: 120%;
+  font-family: sans-serif;
+  max-width: 40em;
+  margin: 0 auto;
+}
+
+nav {
+  text-align: center;
+  padding: 0.5em 0;
+  border-bottom: 2px solid;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+
+header {
+	float: left;
+}
+
+/* view visibility logic and animation */
+
+main > * {
+  display: none;
+}
+
+main > *:last-child {
+  display: block;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1) }
+  50% { transform: scale(1.05) }
+  100% { transform: scale(1) }
+}
+
+main > *:target {
+  display: block;
+  animation: pulse 0.5s linear 1;
+}
+
+main > *:target ~ * {
+  display: none;
+}
+.postdate {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+      
+      .postdate img {
+        width: 90%;
+      }
+.month, .day, .year { 
+  position: absolute; 
+  text-indent: -1000em;
+  background-image: url(https://cdn.css-tricks.com/wp-content/themes/ljq/images/dates.png);
+  background-repeat: no-repeat;
+}
+.month { top: 2px; left: 0; width: 32px; height: 24px;}
+.day { top: 25px; left: 0; width: 32px; height: 25px;}
+.year { bottom: 0; right: 0; width: 17px; height: 48px;}
+
+.m-01 { background-position: 0 4px;}
+.m-02 { background-position: 0 -28px;}
+.m-03 { background-position: 0 -57px;}
+... more like this ...
+
+.d-01 { background-position: -50px 0;}
+.d-02 { background-position: -50px -31px;}
+.d-03 { background-position: -50px -62px;}
+... more like this ...
+
+.y-2006 { background-position: -150px 0;}
+.y-2007 { background-position: -150px -50px;}
+.y-2008 { background-position: -150px -100px;}
+... more like this ...
+
+  </style>
+</head>
+
+<body>
+<header>
+	<div class="postdate">
+        <div class="month m-06">ryan</div>
+        <div class="day d-30">leisinger</div> 
+        <div class="year y-2009">ongithub</div> 
+        <img src="https://pbs.twimg.com/profile_images/2257734259/profile.jpg" alt="Ryan Leisinger profile picture">
+    </div>
+</header>
+<nav role="navigation">
+  <ul>
+    <li><a href="#main-page">main</a></li>
+    <li><a href="#mypresentations">my presentations</a></li>
+    <li><a href="#tweets">twitter & contact</a></li>
+  </ul>
+</nav>
+<main role="main">
+  <div id="mypresentations">
+    <h1>My Presentations</h1>
+    <p>
+       
+            
+      </p>
+    </p>
+  </div>
+  <div id="blogstweets">
+    <h1>tweets & contact</h1>
+    <p>
+      <a class="twitter-timeline" href="https://twitter.com/ryanleisinger">Tweets by ryanleisinger</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </p>
+  </div>
+  <div id="main-page">
+    <h1>Ryan Leisinger</h1>
+    <p>Husband & father of 3 boys who fills his days with web accessibility, software architecture, UX, open data and inclusive design for the State of Washington</p>
+  </div>
+</main>
+<footer>
+  <a class="twitter-follow-button"
+  href="https://twitter.com/ryanleisinger"
+  data-size="large">
+Follow @ryanleisinger</a>
+</footer>
+  <script src="js/scripts.js"></script>
+  <script>
+  window.addEventListener('hashchange', function() {
+	console.log('this view\'s id is', window.location.hash.substr(1));
+  });
+</script>
+
+<a href="https://goo.gl/PNHI9m">my roles</a> | <a href="https://goo.gl/9mN95O">my work que</a>
+
+</body>
+</html>
