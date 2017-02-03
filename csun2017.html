@@ -21,6 +21,8 @@
 	
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	
+
+	
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -106,7 +108,17 @@ main > *:target ~ * {
 .y-2007 { background-position: -150px -50px;}
 .y-2008 { background-position: -150px -100px;}
 ... more like this ...
+@media 
 
+/* Fairly small screens including iphones */
+only screen and (max-width: 500px),
+	body {margin: 1%;}
+/* iPads */
+only screen and (min-device-width: 768px) and (max-device-width: 1024px) 
+
+{
+	#top, #bottom, #left, #right { display: none; }
+}
   </style>
 </head>
 
