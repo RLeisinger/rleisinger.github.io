@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Creating Government Accessibility Services</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+<link rel="stylesheet" href="css/custom.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+      
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <!-- INTRO SLIDE -->
+				<section>
+                    <h1>Creating Government Accessibility Services</h1>
+					<p>
+						<small>Presented by <a href="https://rleisinger.github.io">Ryan Leisinger</a> / <a href="http://twitter.com/ryanleisinger">@ryanleisinger</a></small>
+					</p>
+                </section>
+                <!-- FLAG SLIDE -->
+				<section data-background="images/wa-largeflag.png"></section>
+                <!-- ABOUT STATE SLIDE -->
+                <section>
+                    <h1>Accessibility In WA State Gov</h1>
+                    Some shared centralized services<br>
+                    HR, Finance, Contracts, Phone, Network, Email<br>
+                    Agencies support business solutions<br>
+                </section>
+                
+                <!-- Upgrade to Policy SLIDE -->
+                <section>
+                    <h1>Guideline To Policy</h1>
+                    2005 Guideline<br>
+                    2016 Accessibility Policy<br>
+                  <div class="no-border"><img width="200"  data-src="images/188.png" alt="Yellow sign with number 188" >
+                </section>
+                <!-- ABOUT 188 SLIDE -->
+                <section>
+                    <h1>WA State Policy #188</h1>
+                    August 11th, 2016<br> Washington State Chief Information Officer<br> <a href="http://ocio.wa.gov/policy/accessibility">OCIO Policy #188</a><br>
+                    ALL TECH MUST MEET WCAG 2.0 AA
+                </section>
+                <!-- Services to support 188 -->
+                <section>
+                    <h1>Resources to support #188</h1>
+                    <ul>
+                   <li>Agencies don't have accessibility experts</li>
+                    <li>Agencies look to Central IT for help</li>
+                    <li>Resources are slim</li>
+                    <li>Agencies at different maturity levels</li>
+                    <li>Small Agency Support</li>
+                        </ul>
+                </section>
+                <!-- TRAINING SERVICE SLIDE -->
+                <section data-background="images/RyanTraining.jpg">
+                    <div style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;">
+                    <h1>Training</h1>
+                    Training on Policy requirements<br>
+                        <span class="fragment">Procurement training</span><br>
+                        <span class="fragment">Accessibility 101 training</span><br>
+                        <span class="fragment">Design, Publishing, Development, Testing</span>
+                    </div>
+                </section>
+                <!-- DESIGN SLIDE -->
+                <section data-background="images/ApFi6D6CQAAJVEC.jpg">
+                    <div style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;">
+                    <h1>Design</h1>
+                        Consult on Inclusive Product Design<br>
+                        Facilitate a design sprint<br>
+                        Design from the edge<br>
+                    </div>
+                </section>
+                <section data-background="images/codecode.jpg">
+                    <div style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;">
+                  <h1>Development</h1>
+                    <h2>Web Platform</h2>
+                   <ul>
+                       <li>Drupal sites with our custom base theme</li>
+                    <li>Module library</li>
+                    <li>Using GitHub for versioning</li>
+                    </ul>
+                       </div>
+                </section>
+                <!-- TESTING SLIDE -->
+                <section>
+                    <h1>Testing</h1>
+                    <section>
+                        <h2>Who?</h2>
+                        Existing User Experience Team with a passion and interest in Accessibility<br>
+                        Using current UX Lab.
+                    </section>
+                    <section>
+                        <h2>Multiple layer approach to testing</h2>
+                        <ul>
+                        <span class="fragment">
+                       <li>Code Validation & Automatic Testing</li>
+                        </span>
+                        <span class="fragment">
+                            <li>Functional Testing</li>
+                        </span>
+                        <span class="fragment">
+                            <li>Real User/UX Testing</li>
+                            <br>       
+                        </span>
+                            </ul>
+                    </section>
+                </section>
+                <!-- LEVELS OF TESTING SLIDE -->
+                <section>
+                    <small><b>Code Validation & Automatic Testing</b> - Functional Testing - Real User Testing</small><br>
+                    <h1>Code Validation</h1>
+                    <section>
+                        Run DOM against WCAG 2.0 AA code validation service.<br>
+                        <ul>
+                        <li>In browser</li>
+                        <li>Manually submit page</li>
+                        <li>Service</li>
+                        </ul><br>
+                    </section>
+                    <section>
+                        Simple or complex<br>
+                        Chrome plugin or automated testing in continuous integration system (Git Flow, CircleCI & Pa11y)
+                        <p>
+                        Zero errors does not mean the site is accessible, it mean go to the next step.
+                    </section>
+                <section>
+					
+						<h2>Deliverable</h2>
+
+				        Errors & Warnings<br>
+                        Referenced back to standard<br>
+                        Recommended action<br>
+                    
+                   
+                    
+				</section>
+                    <section>
+                            <section data-markdown>
+					   <script type="text/template">
+```
+<button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar tb-megamenu-button menuIstance-processed tbmenucustom" type="button">
+<i class="fa fa-bars">
+</button>
+```</script>
+                    </section>
+                    1.1.1 Non-text Content (Level A)<br> 2.4.4 Link Purpose (In Context) (Level A)<br>
+                        <p></p>
+                    Recommendation: Add screenreader available only text to button<br>
+                    </section>
+                </section>
+            
+                <section>
+                    <small>Code Validation & Automatic Testing - <b>Functional Testing</b> - Real User Testing</small><br>
+                    <h1>Functional Test</h1>
+                    <section>
+                        Test of predetermined criteria against a site or app, including using assisted technology (screen reader) &  input methods that parallel those of people with disabilities (keyboard only navigation).
+                    </section>
+                    <section>
+                        <h2>Checklist</h2>
+                        Modified version of <a href="http://webaim.org/standards/wcag/checklist">WebAim</a> & <a href="http://www.washington.edu/accessibility/checklist/">UW Checklist</a><br>
+                        
+                    </section>
+                    <section>
+                        <h2>Deliverable</h2>
+                        Checklist results - Pass/Fail & Comment<br>
+                        Referenced back to standard<br>
+                        Recommended action<br>
+                        Document AT used including version and setting
+                    </section>
+                </section>
+                <section>
+                    <small>Code Validation & Automatic Testing - Functional Testing - <b>Real User Testing</b></small><br>
+                    <h1>Real User Test</h1>
+                    <section>
+                        Actual users doing real things<br>
+                        Facilitation is important<br>
+                        Power users not always best testers
+                    </section>
+                    <section>
+                        <h2>Deliverable</h2>
+                        Multi page report on all user's experience<br>
+                        Section that compares/contrasts AT user's experience<br>
+                        Generally less techinical recommendations
+                    </section>
+                    <section>
+                        <p></p>
+                    What we've noticed
+                        <ul>
+                        <span class="fragment"><li>Too much text</li></span>
+                        <span class="fragment"><li>Not all accessibility errors are equal</li></span>
+                        <span class="fragment"><li>Don't rely on main nav</li></span>
+                        <span class="fragment"><li>Focus on forms</li></span>
+                        <span class="fragment"><li>Documents are an issue</li></span>
+                        <span class="fragment"><li>Product owners and devs should attend</li></span>
+                        <span class="fragment"><li>Record your sessions</li></span>
+                            </ul>
+                    </section>
+                </section>
+                    <section>
+                    <h1>More</h1>
+                    Ryan Leisinger<br>
+                    ryan.leisinger@watech.wa.gov<br>
+                    <a href="https://app.glassfrog.com/people/16827">My roles</a><br>
+                     <a href="http://twitter.com/ryanleisinger">@ryanleisinger</a>
+                </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
