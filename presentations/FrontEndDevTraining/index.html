@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Accessibility Developer Training</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/custom.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Welcome slide --> 
+                <section>
+                    <h1>
+                        App/Web Developer<br>
+                        IT Accessibility Training Session
+                    </h1>
+                    April 17th, 2017
+                </section>
+                    <section>
+                        <h1>Welcome to 1500 Jefferson</h1> 
+                   <ul>
+                        <li>Exits</li>
+                        <li>Bathrooms</li>
+                        <li>Food & Coffee</li>
+                        <li>WiFi</li>
+                    </ul>
+                </section>
+                <!-- end Welcome slide -->
+                
+                <!-- schedule slide --> 
+				<section>
+                    <h1>Schedule</h1>
+                    <b>:: Intro ::</b><br>
+                        Policy #188, 
+                        Define Accessibility, Standard & Principals
+                    <p>
+                    
+                    <b>:: Testing Strategy ::</b><br>
+                    Automated Testing, 
+                    Functional Testing
+                    <p>
+ 
+                    <b>:: ARIA ::</b>
+                    <p>                    
+                        <b>:: Break ::</b>
+                    <p> <b>:: Hands on section ::</b><br>
+                        Build Accessible Forms & Menus<br>
+                        Use JQuery to make fixes<br>
+
+                </section>
+                <!-- end schedule slide -->
+                  <section data-background="images/whyme.jpg" data-background-repeat="repeat" data-background-size="300px">
+                    <div style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;">
+				    <h1>Why me?</h1>
+                    <h2>Ryan Leisinger</h2>
+                    <ul>
+                        <li>Solutions Architect @ WaTech and OCIO (<a href="https://app.glassfrog.com/people/16827">My roles</a>)</li>
+                        <li>Part of group that self organizes using Holacracy</li>
+                        <li>Policy Architect and Evanglist for Policy #188</li>
+                        <li>Front End Web Dev - 18 years</li>
+                        <li>Appointed to Gov Committe on Disability Issues</li>    
+                    </ul>
+				    </div>
+                </section>
+                
+                <section>
+                    <h1>Accessibility</h1>
+“Accessible” means a person with a disability is afforded the opportunity to acquire the same information, engage in the same interactions, and enjoy the same services as a person without a disability in an equally effective and equally integrated manner, with substantially equivalent ease of use.”
+<p>                    
+700,000 Washington State citizens impacted by web/software access barriers
+                </section>
+                
+                 <section data-background="images/188.png" data-background-repeat="repeat" data-background-size="800px">
+                   <h1>Policy #188</h1>
+                    
+                    <section style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;">
+                    <h2>Authority</h2>
+                    August 11th, 2017, Michael Cockrill, Washington State Chief Information Officer signed Office of the Chief Information Officer <a href="http://ocio.wa.gov/policy/accessibility">Policy #188</a>
+                            <p>
+                                <a href="https://ocio.wa.gov/policy/technology-policies-and-standards">OCIO Policy #101</a><br>
+                                State Agencies & Higher Edu<br>
+                                Recommended for Legislative and Judiciary
+                            </p>
+					</section>
+                        
+					<section style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;">
+						<h2>Requirements</h2>
+						<strong>ALL COVERED TECH MUST MEET ESTABLISHED & TESTABLE STANDARD</strong>
+                       <ul>
+                        <li>Identify an Accessibility Coordinator</li>
+                           <li>Have policy and process in place to ensure compliance</li>
+                           <li>Publish a ‘plan’ </li>
+                        </ul>
+					</section>
+					<section style="background-color: rgba(0, 0, 0, 0.85); color: #fff; padding: 20px;">
+						<h2>Standard & Covered Technology</h2>
+                        <!-- <img width="300"  data-src="images/pour_bigger.png" alt="pour diagram" class="right"> -->
+						<p>
+                            W3C’s <a href="https://www.w3.org/TR/WCAG20/">WCAG 2.0</a> level AA<br>
+Perceivable, operable, understandable & robust
+</p>
+                        <p>What is covered?<br>
+                        User interfaces :: 
+                        <a href="https://ocio.wa.gov/policies/definition-terms-used-ocio-policies-and-reports#covTech">Covered Tech</a></p>
+					</section>
+                </section>
+                <!-- WCAG Slide -->
+                <section>
+                <h1>WCAG 2.0 level AA</h1>
+                Established and testable standard<br>
+                <a href="https://www.w3.org/WAI/intro/wcag">WCAG 2.0</a> is a stable, referenceable technical standard. It has 12 guidelines that are organized under 4 principles: perceivable, operable, understandable, and robust. For each guideline, there are testable success criteria, which are at three levels: A, AA, and AAA.
+                    <br>
+                </section>
+                <!-- POUR Slide -->
+                <section>
+                <h1>Principals</h1>
+                  
+                    <section id="fragments">
+                                         Perceivable - Information and user interface components must be presentable to users in ways they can perceive.
+                        <p>
+                        This means that users must be able to perceive the information being presented (it can't be invisible to all of their senses)</p>
+                    </section>
+       
+<section id="fragments">
+    Operable - User interface components and navigation must be operable.
+    <p>
+    This means that users must be able to operate the interface (the interface cannot require interaction that a user cannot perform) </p>
+    </section>
+    <section id="fragments"> 
+    Understandable - Information and the operation of user interface must be understandable.
+        <p>This means that users must be able to understand the information as well as the operation of the user interface (the content or operation cannot be beyond their understanding)</p>
+    </section>
+      <section id="fragments">
+
+    Robust - Content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technologies.
+<p>This means that users must be able to access the content as technologies advance (as technologies and user agents evolve, the content should remain accessible)</p>
+                    </section>   
+                </section>
+                 <!-- TESTING SLIDE -->
+                <section>
+                    <h1>Testing</h1>
+                    <section>
+                        <h2>Multiple layer approach to testing</h2>
+                        <ul>
+                        <span class="fragment">
+                       <li>Code Validation & Automatic Testing</li>
+                        </span>
+                        <span class="fragment">
+                            <li>Functional Testing</li>
+                        </span>
+                        <span class="fragment">
+                            <li>Real User/UX Testing</li>
+                            <br>       
+                        </span>
+                            </ul>
+                    </section>
+                </section>
+                
+                <!-- LEVELS OF TESTING SLIDE -->
+                <section>
+                    <small><b>Code Validation & Automatic Testing</b> - Functional Testing - Real User Testing</small><br>
+                    <h1>Code Validation</h1>
+                    <section>
+                        Run DOM against WCAG 2.0 AA code validation service.<br>
+                        <ul>
+                        <li>In browser</li>
+                        <li>Manually submit page</li>
+                        <li>Service</li>
+                        </ul><br>
+                    </section>
+                    <section>
+                        Simple or complex<br>
+                        Chrome plugin or automated testing in continuous integration system (Git Flow, CircleCI & Pa11y)
+                        <p>
+                        Zero errors does not mean the site is accessible, it mean go to the next step.
+                    </section>
+                    <section>
+					
+						<h2>Deliverable</h2>
+
+				        Errors & Warnings<br>
+                        Referenced back to standard<br>
+                        Recommended action<br>
+                    
+                   
+                    
+				</section>
+                    
+                    <section>
+                            <section data-markdown>
+					   <script type="text/template">
+```
+<button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar tb-megamenu-button menuIstance-processed tbmenucustom" type="button">
+<i class="fa fa-bars">
+</button>
+```</script>
+                    </section>
+                    1.1.1 Non-text Content (Level A)<br> 2.4.4 Link Purpose (In Context) (Level A)<br>
+                        <p></p>
+                    Recommendation: Add screenreader available only text to button<br>
+                    </section>
+                </section>
+            
+                <section>
+                    <small>Code Validation & Automatic Testing - <b>Functional Testing</b> - Real User Testing</small><br>
+                    <h1>Functional Test</h1>
+                    <section>
+                        Test of predetermined criteria against a site or app, including using assisted technology (screen reader) &  input methods that parallel those of people with disabilities (keyboard only navigation).
+                    </section>
+                    <section>
+                        <h2>Checklist</h2>
+                        Modified version of <a href="http://webaim.org/standards/wcag/checklist">WebAim</a> & <a href="http://www.washington.edu/accessibility/checklist/">UW Checklist</a><br>
+                        
+                    </section>
+                    <section>
+                        <h2>Deliverable</h2>
+                        Checklist results - Pass/Fail & Comment<br>
+                        Referenced back to standard<br>
+                        Recommended action<br>
+                        Document AT used including version and setting
+                    </section>
+                </section>
+                
+                <section>
+                    <small>Code Validation & Automatic Testing - Functional Testing - <b>Real User Testing</b></small><br>
+                    <h1>Real User Test</h1>
+                    <section>
+                        Actual users doing real things<br>
+                        Facilitation is important<br>
+                        Power users not always best testers
+                    </section>
+                    
+                    <section>
+                        <h2>Deliverable</h2>
+                        Multi page report on all user's experience<br>
+                        Section that compares/contrasts AT user's experience<br>
+                        Generally less techinical recommendations
+                    </section>
+                </section>
+                
+                <!-- ARIA -->
+                <section>
+                <h1>WAI-ARIA 1.0</h1>
+                Accessible Rich Internet Applications<br>
+                Additional markup to enhance html read by Assistive Tech<br>
+                ARIA is a W3C Recommendation
+                <p>
+                1st rule of ARIA
+                    <p></p>
+                    <span class="fragment">
+                        Don't Use ARIA (unless you have to)
+                    </span>
+                </section>    
+                <section>
+                <h1>Misuse of ARIA</h1>
+                     If you can do it with html, do it with html<br>
+                    Forms, HTML5 semantic tags, Navigation<br>
+                    Extra ARIA can conflict with html markup
+                    <p>
+                    aria-selected or aria-pressed or aria-checked</p>
+                </section>    
+                    <section>
+                    <h1>ARIA Landmarks vs HTML5</h1>
+                       Duplication between ARAI and HTML5<p></p>
+                        <section data-markdown>
+					   <script type="text/template">```
+                        <nav role="navigation">
+                            <ul>
+                                <li>Put navigation here</li>
+                            </ul>
+                        </nav>
+                           ```  </script>
+                        </section>
+                    </section>
+                <section>
+                    <h1>Dynamic Content</h1>
+                    Drop down changes content on page<br>
+                    aria-live regions<p>
+                     <section data-markdown>
+					   <script type="text/template">```
+<select size="1" id="bird-selector" aria-controls="bird-info">
+    <option value="1">sparrow</option> 
+</select>
+
+<div role="region" id="bird-info" aria-live="polite">
+<!-- dynamic content here -->
+</div>```
+                         </script>
+                        </section>
+                </section>
+                <section>
+                    <h1>LUNCH BREAK</h1>
+                </section>
+                <section>
+                    <h1>Hands on</h1>
+                    <ul>
+                    <li>Forms</li>
+                    <li>Navigation</li>
+                    <li>Retro fitting</li>
+                    </ul>
+                </section>
+                <section>
+                <h1>Sucess!</h1>
+                    <ul>
+                        <li>Code validation</li>
+                        <li>Keyboard only navigation - tab, space, enter, arrows</li>
+                        <li>Basic screen reader interation</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Screen Readers</h1>
+                    Voice Over for Mac<br>
+                    JAWS by Freedom Scientific<br>
+                    Windows Narrator<br>
+                    ChromVox<br>
+                    NVDA @ https://www.nvaccess.org/<br>
+                </section>
+                <section>
+                    <h1>Accessible Forms</h1>
+                    <ul>
+                    <li>Login form</li>
+                    <li>Search form</li>
+                    <li>Complex form</li>
+                    </ul>
+                </section>
+            </div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

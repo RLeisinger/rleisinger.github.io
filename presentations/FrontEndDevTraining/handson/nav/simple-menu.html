@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<!--[if IE 7]>     <html class="ie ie7 lt-ie8 lt-ie9" dir="ltr"
+lang="en-GB"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lt-ie9" dir="ltr" lang="en-GB">
+<![endif]-->
+<!--[if IE 9]>     <html class="ie ie9" dir="ltr" lang="en-GB"> <![endif]-->
+<!--[if gt IE 9]>  <html dir="ltr" lang="en-GB"> <![endif]-->
+<!--[if !IE]><!--> <html dir="ltr" lang="en-GB"> <!--<![endif]-->
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="Description" content="Working examples of using ARIA to enhance common web application design patterns">
+	<link href="http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700" rel="stylesheet" type="text/css">
+	<link href="http://heydonworks.com/practical_aria_examples/css/main.css" rel="stylesheet" media="all" />
+	<link href="http://heydonworks.com/practical_aria_examples/css/a11y.css" rel="stylesheet" media="all" />
+	<link rel="icon" href="favico.png" type="image/png" />
+	<title>Practical ARIA Examples</title>
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv.js" media="all"></script>
+		<script src="js/html5shiv-printshiv.js" media="print"></script>
+		<script src="js/selectivizr-min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<header role="banner">
+		<div>
+			<h1>ARIA examples</h1>
+			<p>Some practical <abbr title="Accessible Rich Internet Applications">ARIA</abbr> examples to enhance your application accessibility (by <a href="http://twitter.com/heydonworks">@heydonworks</a>).</p>
+			<nav role="navigation" aria-label="menu of examples">
+				<h2 class="a11y-hide">Choose an example</h2>
+				<ol>
+					<li><a href="#input-tooltip">Accessible input tooltips with no javascript</a></li>
+					<li><a href="#button-controlled-input">Button-controlled input with feedback</a></li>
+					<li><a href="#progressive-collapsibles">Progressive collapsibles</a></li>
+					<li><a href="#tab-interface">Simple ARIA tab interface</a></li>
+					<li><a href="#offline-alert">Alert! You're offline</a></li>
+					<li><a href="#warning-dialog">Warning dialog (modal)</a></li>
+					<li><a href="#toolbar-widget">A simple toolbar widget</a></li>
+					<li><a href="#submenus">Simple dropdowns</a></li>
+					<li><a href="#comments">Comments</a></li>
+				</ol>
+			</nav>
+		</div>
+	</header>
+	<div role="main">
+		<div>
+			<section id="input-tooltip">
+				<h2>Accessible input tooltips with no javascript</h2>
+				<form action="">
+					<fieldset>
+						<legend>Login form</legend>
+						<div>
+							<label for="username">Your username</label>
+							<input type="text" id="username" aria-describedby="username-tip" required />
+							<div role="tooltip" id="username-tip">Your username is your email address</div>
+						</div>
+						<div>
+							<label for="password">Your password</label>
+							<input type="text" id="password" aria-describedby="password-tip" required />
+							<div role="tooltip" id="password-tip">Was emailed to you when you signed up</div>
+						</div>
+					</fieldset>
+				</form>
+				<h3>The HTML</h3>
+				<p>(ARIA and ARIA-associated attributes displayed in green)</p>
+<pre>
+&lt;form action=""&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Login form&lt;/legend&gt;
+    &lt;div&gt;
+      &lt;label for="username"&gt;Your username&lt;/label&gt;
+	  &lt;input type="text" id="username" <strong class="aria">aria-describedby="username-tip"</strong> required /&gt;
+	  &lt;div <strong class="aria">role="tooltip"</strong> <strong class="aria">id="username-tip"</strong>&gt;Your username is your email address&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+	  &lt;label for="password"&gt;Your password&lt;/label&gt;
+	  &lt;input type="text" id="password" <strong class="aria">aria-describedby="password-tip"</strong> required /&gt;
+	  &lt;div <strong class="aria">role="tooltip"</strong> <strong class="aria">id="password-tip"</strong>&gt;Was emailed to you when you signed up&lt;/div&gt;
+	&lt;/div&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+				<h4>A few notes</h4>
+				<p>No javascript is required because no states (attributes) need switching &mdash; the <strong class="aria">aria-describedby</strong> and <code>id</code> relationships are just <em>there</em>. We still need to reveal the tooltip on focus but this can be achieved with a simple CSS <a href="http://reference.sitepoint.com/css/adjacentsiblingselector">adjacent sibling combinator</a>:</p>
+<pre>
+input:focus + [role="tooltip"] {
+	display: block;
+	position: absolute;
+	top: 100%;
+}
+</pre>
+			</section>
+			<section id="button-controlled-input">
+				<h2>Button controlled input with live feedback</h2>
+				<p>Because <a href="http://caniuse.com/input-number">number input support</a> is sort of patchy.</p>
+				<form action="">
+					<fieldset>
+						<legend>Add or subtract ten</legend>
+						<div>
+							<label for="number">Current value</label>
+							<input type="text" role="alert" aria-live="assertive" readonly value="0" id="number" />
+							<button type="button" title="add 10" aria-controls="number">Add</button>
+							<button type="button" title="subtract 10" aria-controls="number">Subtract</button>
+						</div>
+					</fieldset>
+				</form>
+				<h3>The HTML</h3>
+				<p>(ARIA and ARIA-associated attributes displayed in green)</p>
+<pre>
+&lt;form action=""&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Add or subtract ten&lt;/legend&gt;
+	&lt;div&gt;
+	  &lt;label for="number"&gt;Current value&lt;/label&gt;
+	  &lt;input type="text" <strong class="aria">role="alert"</strong> <strong class="aria">aria-live="assertive"</strong> readonly value="0" id="number" /&gt;
+	  &lt;button type="button" title="add 10" <strong class="aria">aria-controls="number"</strong>&gt;Add&lt;/button&gt;
+	  &lt;button type="button" title="subtract 10" <strong class="aria">aria-controls="number"</strong>&gt;Subtract&lt;/button&gt;
+	&lt;/div&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+</pre>
+			<h4>A few notes</h4>
+			<p>The <code class="aria">aria-live="assertive"</code> attribute means that the value of the text field will be spoken whenever it changes. This happens whenever you use the buttons to add or subtract 10 from the value.</p>
+			<p>The <code class="aria">aria-controls</code> attribute just confirms that each button <em>controls</em> the input. Different screen readers identify this accessible relationship in different ways, but it helps to know what you are affecting. <abbr title="a screen reader">JAWS</abbr> sometimes announces a shortcut to the element that is being controlled. This is handy if it's a long way away in the document.</p>
+			<p><abbr title="a free screen reader">NVDA</abbr> reads the button title attribute after the button text node. For example, "add button &mdash; add 10".</p>
+			</section>
+			<section id="progressive-collapsibles">
+				<h2>Progressive collapsibles</h2>
+				<p>Building accessible, collapsible content sections from basic flow content.</p>
+				<div class="collapsible">
+					<h3>First title in block of content</h3>
+					<p>Aliquam tincidunt velit sit amet <a href='#'>ante hendrerit</a> tempus. Potenti et eros sed justo &ndash; commodo bibendum non at nunc. Fusce ac sodales magna. Suspendisse potenti cras molestie, risus a enim convallis vitae luctus libero lacinia. Cras molestie risus a enim &#8216;convallis vitae&#8217; luctus libero lacinia. </p><p>Nulla auctor eleifend turpis consequat pharetra: Vestibulum sit amet ipsum lacus&hellip; Nulla vel magna sit &mdash; amet dui lobortis commodo &mdash; vitae vel nulla. </p><p>Curabitur consectetur faucibus nisl ac varius. Curabitur consectetur; faucibus nisl ac varius. Nunc iaculis risus vel orci ornare dignissim sed vitae nulla. Nulla auctor eleifend turpis consequat pharetra. Suspendisse potenti H<sub>2</sub>0. Suspendisse <em>potenti</em>. </p>
+					<h3>Another Third Level Heading</h3>
+					<p>Aliquam nisl enim&hellip; tristique tempus placerat at, posuere in lectus. Potenti et eros sed justo commodo bibendum non at nunc. Aliquam nisl enim, tristique tempus placerat at, posuere in lectus. Sed dapibus, lectus sit amet adipiscing egestas, mauris est viverra nibh, iaculis pretium sem orci aliquet mauris. Duis sagittis, est sit amet gravida tristique, purus lectus venenatis urna, id &#8216;molestie&#8217; magna risus ut nunc. Donec tempus tempus tellus, ac lacinia turpis mattis ac. Curabitur consectetur; faucibus nisl ac varius. </p><p>Nunc iaculis risus vel &#8216;Orci Ornare&#8217; dignissim sed vitae nulla. Sed dapibus, lectus sit amet adipiscing egestas, mauris est viverra nibh, <a href='#'>iaculis pretium</a> sem orci aliquet mauris. Fusce ac sodales magna. Nulla auctor eleifend 23<sup>rd</sup> of May turpis consequat pharetra. Suspendisse potenti H<sub>2</sub>0. </p>
+				</div>
+				<h3>The HTML</h3>
+				<p>(We start with just &lt;h3&gt; headings and other flow content. The other flow content is wrapped and the necessary button control and attributes are added with javascript. A click function just toggles the <strong class="aria">aria-expanded</strong> and <strong class="aria">aria-hidden</strong> states.)</p>
+<pre>
+&lt;h3&gt;
+   &lt;button <strong class="aria">aria-expanded="false"</strong> <strong class="aria">aria-controls="collapsible-0"</strong>&gt;What is this all about?&lt;/button&gt;
+&lt;/h3&gt;
+&lt;div <strong class="aria">id="collapsible-0"</strong> <strong class="aria">aria-hidden="true"</strong>&gt;
+   &lt;p&gt;Lorem ipsum with a &lt;a href="http://example.com"&gt;link thrown in&lt;/a&gt; etc.&lt;/p&gt;
+   &lt;p&gt;etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- next &lt;h3&gt; here --&gt;
+</pre>
+			<h4>A few notes</h4>
+			<p>Using both <abbr title="a screen reader">JAWS</abbr> and <abbr title="a free screen reader">NVDA</abbr> with Firefox, focusing on the heading button indicates (a) the heading level, (b) that the control is a button and (c) whether it is in an expanded or collapsed state. In NVDA, for a collapsed region, "[The title], heading level 3, button collapsed" is announced. In JAWS, it is the same info but in a different order.</p>
+			<p>In JAWS 15, the <strong class="aria">aria-controls</strong> relationship is recognised and you are given the option to "use the <kbd>JAWS</kbd> key + <kbd>ALT</kbd> + <kbd>M</kbd> to move to the controlled element". This is an interesting addition and would be handy if the element was not the next node on the page (ie. out of <kbd>TAB</kbd> order). Currently, one is able to simple move to the content using (for example) the down arrow key.</p>
+			<p>In this demo we use the `&lt;h3&gt;` element as the divider. You can tweak <a target="_blank" href="http://www.heydonworks.com/practical_aria_examples/js/a11y.js">the script</a> to use whatever heading level works best for your content. </p>
+			</section>
+			<section id="tab-interface">
+				<h2>Simple ARIA tab interface</h2>
+				<p>A tab interface built on <abbr title="Plain Old Semantic HTML">POSH</abbr> and enhanced with ARIA via javascript. Just requires you to place the structure within a wrapping <code>&lt;div&gt;</code>. In our case this is identified by the class <code>.tab-interface</code>. No other classes are required.</p>
+				<div class="tab-interface">
+					<ul>
+						<li><a href="#section1">Section 1</a></li>
+						<li><a href="#section2">Section 2</a></li>
+						<li><a href="#section3">Section 3</a></li>
+					</ul>
+					<section id="section1">
+						<h3>Section 1</h3>
+						 <p>Duis sagittis, est sit amet gravida tristique, purus lectus venenatis urna, id molestie magna risus ut nunc. Aliquam nisl enim, tristique tempus placerat at, posuere in lectus. Vestibulum sit amet ipsum lacus. Suspendisse <em>potenti</em>. </p><p>Nulla lobortis tempus commodo. Fusce ac sodales magna. Cras molestie risus a <q cite='http://www.heydonworks.com'>enim convallis vitae</q> luctus libero lacinia. Donec tempus tempus tellus, ac lacinia turpis mattis ac. Maecenas sit <q cite='http://www.heydonworks.com'>amet tellus nec mi gravida posuere</q> non pretium magna. Aliquam nisl enim, tristique tempus placerat at, posuere in lectus. Aliquam tincidunt velit sit amet ante hendrerit tempus. Sed mauris arcu, aliquet ultrices malesuada sed, pretium id <kbd>CTRL</kbd> + <kbd>V</kbd> massa. </p>
+					</section>
+					<section id="section2">
+						<h3>Section 2</h3>
+						 <p>Fusce ac sodales <abbr title='Cascading Style Sheets'>CSS</abbr> magna. Donec et nisi dictum felis sollicitudin congue. Aliquam nisl enim, tristique tempus placerat at, posuere in lectus. Sed dapibus, lectus sit amet adipiscing egestas, mauris est viverra nibh, iaculis pretium sem orci aliquet mauris. Suspendisse <del>potenti</del>. Duis sagittis, est sit amet gravida tristique, purus lectus venenatis urna, id molestie magna risus ut nunc. Fusce ac sodales magna. Potenti et eros sed justo commodo bibendum non at nunc. </p><p>Suspendisse potenti cras molestie, risus a enim convallis vitae luctus libero lacinia. Nulla vel magna sit amet dui <a href='#'>lobortis</a> commodo vitae vel nulla. Suspendisse potenti. Sed dapibus, lectus sit amet adipiscing egestas, mauris est viverra nibh, <a href='#'>iaculis pretium</a> sem orci aliquet mauris. Donec a congue leo. Vestibulum sit amet ipsum lacus. </p>
+					</section>
+					<section id="section3">
+						<h3>Section 3</h3>
+						 <p>Potenti et eros sed justo commodo bibendum non at nunc. Maecenas sit amet tellus nec mi gravida posuere non pretium magna. Nulla auctor eleifend turpis consequat pharetra. </p><p>Vestibulum sit amet ipsum lacus. Lorem ipsum dolor sit amet, consectetur <em>adipiscing elit</em>. Sed dapibus, lectus sit amet adipiscing egestas, mauris est viverra nibh, iaculis pretium sem orci aliquet mauris. Duis sagittis, est sit amet gravida tristique, purus lectus venenatis urna, id molestie magna risus ut nunc. Nulla vel magna sit amet dui <a href='#'>lobortis</a> commodo vitae vel nulla. </p><p>Suspendisse potenti. Aliquam nisl enim, tristique tempus placerat at, posuere in lectus. Lorem ipsum dolor sit amet, consectetur <em>adipiscing elit</em>. Suspendisse potenti H<sub>2</sub>0. </p>
+					</section>
+				</div>
+				<h3>The HTML</h3>
+				<p>(Progressively enhanced, so starting with a list of links to sections of content, with ARIA attributes and their attached styles loaded where environments permit)</p>
+				<p style="margin-top: 1.5em; text-indent: 0;">This is before:</p>
+<pre>
+&lt;ul&gt;
+ &lt;li&gt;&lt;a href="#section1"&gt;Section 1&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#section2"&gt;Section 2&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="#section3"&gt;Section 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;section id="section1"&gt;...&lt;/section&gt;
+&lt;section id="section2"&gt;...&lt;/section&gt;
+&lt;section id="section3"&gt;...&lt;/section&gt;
+</pre>
+				<p>This is after:</p>
+<pre>
+&lt;ul <strong class="aria">role="tablist"</strong>&gt;
+ &lt;li <strong class="aria">role="presentation"</strong>&gt;&lt;a href="#section1" tabindex="0" <strong class="aria">role="tab"</strong> <strong class="aria">aria-controls="section1"</strong> <strong class="aria">aria-selected="true"</strong>&gt;Section 1&lt;/a&gt;&lt;/li&gt;
+ &lt;li <strong class="aria">role="presentation"</strong>&gt;&lt;a href="#section2" tabindex="-1" <strong class="aria">role="tab"</strong> <strong class="aria">aria-controls="section2"</strong>&gt;Section 2&lt;/a&gt;&lt;/li&gt;
+ &lt;li <strong class="aria">role="presentation"</strong>&gt;&lt;a href="#section3" tabindex="-1" <strong class="aria">role="tab"</strong> <strong class="aria">aria-controls="section3"</strong>&gt;Section 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;section id="section1" <strong class="aria">role="tabpanel"</strong>&gt;...&lt;/section&gt;
+&lt;section id="section2" <strong class="aria">role="tabpanel"</strong> <strong class="aria">aria-hidden="true"</strong>&gt;...&lt;/section&gt;
+&lt;section id="section3" <strong class="aria">role="tabpanel"</strong> <strong class="aria">aria-hidden="true"</strong>&gt;...&lt;/section&gt;
+</pre>
+			<h4>A few notes</h4>
+			<p>I've commented up <a href="http://heydonworks.com/practical_aria_examples/js/a11y.js">the script</a> if you want to have a look. The trick is in allowing users to switch focus between the <strong class="aria">aria-selected</strong> tab and the content itself without having to cycle through all the irrelevant tabs. One changes focus betwen tabs using the <kbd>&#x25c0;</kbd> and <kbd>&#x25b6;</kbd> arrow keys and between the selected tab and the selected panel using the <kbd>TAB</kbd> key as normal. Pressing <kbd>TAB</kbd> will focus the first element <em>inside</em> the visible tab panel. Since this is a heading, "Heading level 3, section [1], tab panel should be announced".</p>
+			<p>When entering the <strong class="aria">tablist</strong> for the first time and focusing the leftmost <strong class="aria">tab</strong>, <abbr title="the best screen reader for Windows">NVDA</abbr> announces "tab control, [title], tab selected, one of three". Using the right arrow key (<kbd>&#x25b6;</kbd>) to choose the next tab, NVDA announces "[title], tab selected, two of three". </p>
+			</section>
+			<section id="offline-alert">
+				<h2>Alert! You're offline</h2>
+				<p>A live region example which alerts the user whenever internet connectivity is lost or regained.</p>
+				<div id="status" aria-live="assertive" role="alert">
+					<p>You are online, which is nice!</p>
+				</div>
+				<h3>The HTML</h3>
+				<p>(ARIA and ARIA-associated attributes displayed in green)</p>
+<pre>
+&lt;div id="status" <strong class="aria">role="alert"</strong> <strong class="aria">aria-live="assertive"</strong> class="online"&gt;
+	&lt;p&gt;You are online.&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+				<h4>A few notes</h4>
+				<p>A test resource (<code>test_resource.html</code>) is polled every few seconds to see if it can be reached. If not, the XHR <code>onerror</code> changes the status message to &#x201c;There's no internets. Go to the pub!&#x201d;, triggering the <strong>live region</strong> to announce this fact and suggestion. When connectivity comes back, the message should change back, triggering the <strong>live region</strong> again. It is changing the <em>contents</em> of the region that triggers any read out.</p>
+				<p>Note that I've included both <strong class="aria">role="alert"</strong> and <strong class="aria">aria-live="assertive"</strong> at the same time. These are synonymous attributes, but some screen readers only support one or the other. By using both simultaneously we therefore maximize the chances that the live region will function as expected.</p>
+			</section>
+			<section id="warning-dialog">
+				<h2>Warning dialog</h2>
+				<p>Pressing the <strong style="color: #cc0000;">BIG RED BUTTON</strong> will open a <code>&lt;dialog&gt;</code> with a warning and a confirmation button. Closing the dialog returns focus to the <strong style="color: #cc0000;">BIG RED BUTTON</strong> that triggered it.</p>
+				<p><strong>Note:</strong> Currently buggy in Chrome when used with NVDA. No NVDA issues with other browsers. Any suggestions greatly appreciated.</p>
+				<div>
+					<button id="big-red" data-dialog-call="I really do not like you pressing that" data-dialog-response="I understand">Big Red Button</button>
+				</div>
+				<h3>The HTML</h3>
+				<p>We construct the dialog using an empty <code>&lt;dialog&gt;</code> element sat at the foot of the body element and two <code>data</code> attributes on the "trigger"; the <strong style="color: #cc0000;">red button</strong>, in this case.</p>
+				<h4>The trigger</h4>
+<pre>
+&lt;button id="big-red" data-dialog-call="I really do not like you pressing that" data-dialog-response="I understand"&gt;Big Red Button&lt;/button&gt;
+</pre>
+			<p>The <code>data-dialog-call</code> attribute contains the warning and the <code>data-dialog-response</code> is the text for the close button. It defaults to "close" if no custom text is given.</p>
+			<h4>The generated dialog markup</h4>
+<pre>
+&lt;dialog tabindex="0" open="open" <strong class="aria">role="alertdialog"</strong> <strong class="aria">aria-labelledby="d-message"</strong>&gt;
+   &lt;div&gt;
+      &lt;div <strong class="aria">role="document"</strong> <strong class="aria">tabindex="0"</strong>&gt;
+         &lt;p id="d-message"&gt;I really do not like you pressing that&lt;/p&gt;
+         &lt;button&gt;I understand&lt;/button&gt;
+      &lt;/div&gt;
+   &lt;/div&gt;
+&lt;/dialog&gt;
+</pre>
+			<h4>Notes</h4>
+			<p>Be sure to check out <a target="_blank" href="http://www.heydonworks.com/practical_aria_examples/js/a11y.js">the little script</a> which creates and handles the dialog. It&hellip;</p>
+			<ul>
+				<li>Creates the dialog dynamically, adding the special <code class="aria">alertdialog</code> role reserved for warning and error dialogs</li>
+				<li>Makes the dialog focusable</li>
+				<li>Remembers the element that triggered the dialog</li>
+				<li>Injects the dialog message and close button based on the <code>data</code> attributes of the trigger</li>
+				<li>Wraps the content in <code class="aria">role="document"</code>, which reinstates predictable key bindings if the dialog is in a <code class="aria">role="application"</code></li>
+				<li>Associates the message with the dialog element itself with <code class="aria">aria-labelledby</code></li>
+				<li>Focuses the close button</li>
+				<li>Traps focus within the dialog</li>
+				<li>Moves focus back to the trigger element (the <strong style="color: #cc0000;">BIG RED BUTTON</strong>) on closing the dialog</li>
+			</ul>
+			<p>Importantly, the script prevents users from interacting with the rest of the page until the dialog has been closed. We add <code>visibility: hidden</code> to the dialog's siblings for this and return focus to the dialog itself when <kbd>TAB</kbd> is hit on the close button. <kbd>SHIFT</kbd> + <kbd>TAB</kbd> still lets users escape the dialog to the browser address bar etc.</p>
+<pre>
+// Handle TAB
+close.on('keydown', function(e) {
+   if ((e.keyCode || e.which) == 9) {
+      dialog.focus();
+      e.preventDefault();
+   }
+});
+
+</pre>
+			<p>On opening the dialog, <abbr title="a free screen reader">NVDA</abbr> reads "Dialog: I really do not like you pressing that; I understand (button)". Pressing <kbd>TAB</kbd> focuses the dialog itself to reread the message, in case you missed it. Pressing the close button closes the dialog and returns focus to the "trigger" element that invoked it. This causes NVDA to read "Practical ARIA Examples document, main landmark, big red button (button)".</p>
+			</section>
+			<section id="toolbar-widget">
+				<h2>A simple toolbar widget</h2>
+				<p>A generic pattern for "toolbars" which offer buttons for manipulating content in some way. In this case, it's sorting a list.</p>
+				<div class="grey-box">
+					<h3>Sorting crab names</h3>
+					<div role="toolbar" aria-label="sorting options" aria-controls="sortable">
+    					<button type="button" aria-pressed="true" data-sort="ascending">A to Z</button>
+    					<button type="button" aria-pressed="false" data-sort="descending">Z to A</button>
+    				</div>
+    				<ul id="sortable" tabindex="-1">
+    					<li>Fiddler crab</li>
+				    	<li>Hermit crab</li>
+				    	<li>Red crab</li>
+				    	<li>Robber crab</li>
+				    	<li>Sponge crab</li>
+				    	<li>Yeti crab</li>
+    				</ul>
+				</div>
+				<h3>The HTML</h3>
+				<p>(ARIA and ARIA-related attributes in green as always)</p>
+<pre>
+&lt;div <strong class="aria">role="toolbar"</strong> <strong class="aria">aria-label="sorting options"</strong> <strong class="aria">aria-controls="sortable"</strong>&gt;
+  &lt;button type="button" <strong class="aria">aria-pressed="true"</strong> data-sort="ascending"&gt;A to Z&lt;/button&gt;
+  &lt;button type="button" <strong class="aria">aria-pressed="false"</strong> data-sort="descending"&gt;Z to A&lt;/button&gt;
+&lt;/div&gt;
+&lt;ul <strong class="aria">id="sortable"</strong> tabindex="-1"&gt;
+  &lt;li&gt;Fiddler crab&lt;/li&gt;
+  &lt;li&gt;Hermit crab&lt;/li&gt;
+  &lt;li&gt;Red crab&lt;/li&gt;
+  &lt;li&gt;Robber crab&lt;/li&gt;
+  &lt;li&gt;Sponge crab&lt;/li&gt;
+  &lt;li&gt;Yeti crab&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+				<h4>A few notes</h4>
+				<p>This is all about providing context. When the toolbar is entered (from either direction) and one of the buttons is focused, we are told that we are in a "toolbar", then the label of "sorting options" is also announced. Then, it is confirmed that the button is a "toggle button". This described behavior is in JAWS and NVDA. In JAWS 15 or NVDA with Firefox, a button with <strong class="aria">aria-pressed="true"</strong> will be appended with the word "pressed" when announced.</p>
+				<p>Chromevox announces <strong class="aria">aria-pressed="true"</strong> as "button pressed" and <strong class="aria">aria-pressed="false"</strong> as "button not pressed". This is a good reason to toggle the attribute value rather than removing <strong class="aria">aria-pressed</strong> as a boolean.</p>
+				<p><strong>Update:</strong> This example now supports <a href="http://www.w3.org/WAI/PF/aria-practices/#toolbar">recommended keyboard navigation</a>. That is, tabbing into the toolbar focuses the first button; using the left and right arrow keys switches focus between buttons; pressing <kbd>TAB</kbd> while focused on a button moves focus out of the toolbar (in this case, onto the list so it may be read).</p>
+			</section>
+			<section id="submenus">
+				<h2>Simple dropdowns</h2>
+				<p>Simple solutions are good solutions. For this basic implementation of navigational "dropdown" submenus, the <code>aria-haspopup</code> alerts you to the presence of a submenu. The addition of an <code>aria-label</code> with a value of "submenu" just confirms it is a submenu you are entering as the first item is focused. The submenu is an enhancement, so <code>aria-haspopup</code> is only added when javascript runs, allowing you to reveal the submenu on click. If javascript does not run, the about link takes you to the top of the about page. Thanks to <a href="https://twitter.com/melindrea82">Marie Hogebrandt</a> for helping me test this.</p>
+				<nav role="navigation" aria-label="example with dropdowns">
+					<ul class="with-dropdowns">
+						<li><a href="#">Home</a></li>
+						<li>
+							<a href="/about">About</a>
+							<ul aria-hidden="true" aria-label="submenu">
+								<li><a href="/about/#who-we-are">Who we are</a></li>
+								<li><a href="/about/#what-we-do">What we do</a></li>
+								<li><a href="/about/#why">Why</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</nav>
+				<h3>The HTML</h3>
+				<p>(ARIA and ARIA-related attributes in green)</p>
+				<pre>
+&lt;nav role="navigation" aria-label="example with dropdowns"&gt;
+	&lt;ul class="with-dropdowns"&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="/about" <strong class="aria">aria-haspopup="true"</strong>&gt;About&lt;/a&gt;
+			&lt;ul aria-hidden="true" <strong class="aria">aria-label="submenu"</strong>&gt;
+				&lt;li&gt;&lt;a href="/about/#who-we-are"&gt;Who we are&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="/about/#what-we-do"&gt;What we do&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="/about/#why"&gt;Why&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;
+				</pre>
+			<h4>Some notes</h4>
+			<p>Using NVDA with Firefox, focusing the <strong>about</strong> link reads <em>"about submenu link"</em>. The submenu opens, placing each of its links in the tab order. On entering the submenu and focusing the first link, <em>"list with three items submenu who we are link"</em> is announced. JAWS is a bit more literal, announcing <em>"has popup link"</em> when the <strong class="aria">aria-haspopup</strong> link is focused.</p>
+			<p>Note that the <code>href</code> values of each submenu item point at subsections (fragments) of the master about page. As topics belonging to "about" this makes good sense. It would probably be beneficial to have some same page navigation to each of these subsections at the top of the about page itself, mimicing the functionality of the dropdown and ensuring there is (sub) navigation when javascript is not present.</p>
+			</section>
+			<aside id="comments">
+				<h2>Comments</h2>
+				<div id="disqus_thread"></div>
+				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			</aside>
+		</div>
+	</div>
+	<footer role="contentinfo">
+		<div>
+			<p>This page is maintained by <a href="http://twitter.com/heydonworks">@heydonworks</a> of <a href="http://www.heydonworks.com">heydonworks.com</a>. Please contact me with any comments, problems or suggestions.</p>
+		</div>
+	</footer>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="http://heydonworks.com/practical_aria_examples/js/a11y.js"></script>
+	
+	<dialog></dialog>
+</body>
