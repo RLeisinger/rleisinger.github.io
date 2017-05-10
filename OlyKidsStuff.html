@@ -11,6 +11,29 @@
   <link rel="stylesheet" href="css/styles.css">
   <STYLE>
   body {font-family: 'Roboto', sans-serif;}
+    #navcontainer ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+text-align: center;
+}
+
+#navcontainer ul li { display: inline; }
+
+#navcontainer ul li a
+{
+text-decoration: none;
+padding: .2em 1em;
+color: #fff;
+background-color: #036;
+}
+
+#navcontainer ul li a:hover
+{
+color: #fff;
+background-color: #369;
+}
   </STYLE>
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -18,18 +41,21 @@
 </head>
 
 <body>
-<header role="banner">
-   <p><h1>Stuff To Do With Your Kids In Olympia, WA</h1></p>
+<header>
+   <h1>Stuff To Do With Your Kids In Olympia, WA</h1>
 </header>
-<nav role="navigation">
+<nav id="navcontainer">
    <ul>
-      <li>Put navigation here</li>
+     <li><a href="#parks">parks</a></li>
+     <li><a href="#events">events</a></li>
+     <li><a href="#eating">eating</a></li>
+     
    </ul>
 </nav>
-<main role="main">
+<main>
    <p>Put main content here.</p>
 </main>
-<footer role="contentinfo">
+<footer>
    <p>List by Ryan Leisinger</p>
 </footer>
   <script src="js/scripts.js"></script>
