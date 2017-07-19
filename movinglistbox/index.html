@@ -1,1 +1,50 @@
 
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Super Basic HTML5 Template</title>
+  <meta name="description" content="Super Basic HTML5 Template">
+  <meta name="author" content="Me">
+
+  <link rel="stylesheet" href="styleme.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<div class="approveTermsContainer">
+  <div class="newItems">
+    <b>New Items:</b><br/>
+    <select multiple="multiple" id='lstBox1'>
+              <option value="ajax">Ajax</option>
+              <option value="jquery">jQuery</option>
+              <option value="javascript">JavaScript</option>
+              <option value="mootool">MooTools</option>
+              <option value="prototype">Prototype</option>
+              <option value="dojo">Dojo</option>
+        </select>
+  </div>
+  <div class="transferBtns">
+    <input type='button' id='btnRight' value='  >  ' />
+    <br/><input type='button' id='btnLeft' value='  <  ' />
+    <div class="submitContainer">
+      <input type="submit" />
+    </div>
+  </div>
+  <div class="approvedItems">
+    <b>Items to Approve: </b><br/>
+    <select multiple="multiple" id='lstBox2'>
+        </select>
+  </div>
+</div>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="listbox.js"></script>
+</body>
+
+</html>
