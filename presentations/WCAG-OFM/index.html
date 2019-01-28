@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+			<title>Accessibility and WCAG 2.1</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+<link rel="stylesheet" href="css/custom.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                <section>
+                      <h1>Accessibility and WCAG 2.1</h1>
+					<p>
+
+							<small>OFM IT, 1/28/2019<br>Presented by <a href="https://www.linkedin.com/in/ryanleisinger/">Ryan Leisinger</a> / <a href="http://twitter.com/ryanleisinger">@ryanleisinger</a></small>
+	</p>
+                </section>
+<section>
+	<h1>Today</h1>
+	<ul>
+		<li>Introduction</l1>
+			<li>Web Content Accessibility Guidelines (WCAG)</li>
+			<li>Questions</li>
+			<li>User Stories</li>
+		</ul>
+</section>
+
+                <section>
+
+				    					<h1>Accessibility</h1>
+												<section>
+														“Accessible” means a person with a disability is afforded the opportunity to acquire the same information, engage in the same interactions, and enjoy the same services as a person without a disability in an equally effective and equally integrated manner, with substantially equivalent ease of use.
+												</section>
+
+												<section>
+														700,000 Washington State citizens impacted by web/software access barriers
+													</section>
+
+                </section>
+								<section>
+
+						<h1>Who am I?</h1>
+						<h2>Ryan Leisinger</h2>
+						<ul>
+<li>WA State Accessibility Champion - Architect & Co-Author of Policy #188</li>
+<li>WaTech Accessibility Coordinator & Office of Financial Management Accessibility Committee Member</li>
+<li>Governor’s Committee for Disability Issues</li>
+</ul>
+								</section>
+										<section>
+	                    <h1>Policy #188</h1>
+	                     <section>
+	                     August 11th, 2016, Michael Cockrill, Washington State Chief Information Officer signed Office of the Chief Information Officer <a href="http://ocio.wa.gov/policy/accessibility">Policy #188</a>
+	                           <br>
+															 Final approved September 12th, 2017
+															 	  <p>
+	                                 <a href="https://ocio.wa.gov/policy/technology-policies-and-standards">OCIO Policy #101</a><br>
+	                                 State Agencies, Boards, Commissions & Higher Edu<br>
+	                                 Recommended for Legislative and Judiciary
+	                             </p>
+	                         Per <a href="http://app.leg.wa.gov/rcw/dispo.aspx?cite=43.41A.006">RCW 43.41A.006</a> & <a href="http://app.leg.wa.gov/rcw/dispo.aspx?cite=43.41A.010">RCW 43.41A.010</a>
+												 </section>
+												 <section>
+													 <h2>Purpose</h2>
+													 This policy establishes the expectation for state agencies that people with disabilities
+													 have access to and use of information and data and be provided access to the same services
+													 and content that is available to persons without disabilities unless providing direct access
+													 is not possible due to technical or legal limitations.
+												 </section>
+												 <section>
+													 <h2>REQUIREMENTS</h2>
+ALL COVERED TECH MUST MEET ESTABLISHED & TESTABLE STANDARD
+<ul>
+<li>Identify an Accessibility Coordinator</li>
+<li>Have policy and process in place to ensure compliance</li>
+<li>Create a ‘plan’</li>
+</ul>
+												 </section>
+												 <section>
+													 <h2>Minimum Standard</h2>
+													 Established and testable standard.<br>
+													 W3C's WCAG 2.0* level AA
+													 <blockquote><small>
+														 This policy and the associated standard are intended to assist the State of Washington in meeting its
+obligations under state and federal law to provide reasonable accommodation to employees and
+provide persons with disabilities an equal opportunity to participate in, and enjoy the benefits of
+services, programs, or activities conducted by the state.</small>
+</blockquote>
+												 </section>
+	 					</section>
+						<section>
+<h1>Americans with Disabilities Act (ADA)</h1>
+Signed into law July 26th, 1990<br>
+Department of Justice Civil Rights Division
+<p>
+	<h2>“Thou shall not discriminate against people with disabilities!”</h2>
+<p><small>
+The ADA is a civil rights law that prohibits discrimination against individuals with disabilities in all areas of public life.</small>
+</section>
+						<section>
+							<h1>WCAG 2.0</h1>
+							<section>
+							WCAG 2.0 was published as a W3C Recommendation on December 11th, 2008
+							<p>
+						The first concept proposal was<br> published in January 2001
+						<p>
+						</section>
+							<section>
+							In 2017, a Federal Court in Florida identified the WCAG 2.0 guidelines as the
+							"industry standard" for website accessibility and found that Winn Dixie Store, Inc.,
+							violated the Americans with Disabilities Act
+						</section>
+						</section>
+                </section>
+								<section>
+									<h1>WCAG 2.1</h1>
+									<section>
+									W3C Recommendation June 5th, 2018
+									<p>
+									 Backward compatible with WCAG 2.0<br>
+									 "Content that conforms to WCAG 2.1 also conforms to WCAG 2.0"
+									 <p>
+										 17 new Success criteria<br>
+										 11 new A & AA
+										 <p>
+									 Not the final Accessibility Guideline<br>
+									 Future version will be a Reboot (<a href="https://www.w3.org/WAI/GL/task-forces/silver/work-statement">Silver</a>)
+								 </section>
+
+
+
+							 </section>
+                <!-- WCAG Slide -->
+                <section>
+                <h1>WCAG 2.1</h1>
+                <b>Established and testable standard</b><br>
+                <a href="https://www.w3.org/WAI/intro/wcag">WCAG 2.1</a> is a stable, referenceable technical standard.
+                    <p>It has 13 guidelines that are organized under 4 principles: perceivable, operable, understandable, and robust. For each guideline, there are testable success criteria, which are at three levels: A, AA, and AAA.
+                    <br>
+                </section>
+								<section>
+									<h1>Parts of WCAG</h1>
+									<ul>
+										<li>Principles</li>
+										<li>Guidelines</li>
+										<li>Success Criteria</li>
+										<li>Techniques</li>
+									</ul>
+								</section>
+							 </section>
+							 <!-- POUR Slide -->
+															<section>
+															<h1>Principals</h1>
+																	<section id="fragments"><img src="http://1.bp.blogspot.com/-_LgSwVWKtSU/VX7UaReOxJI/AAAAAAAAGf4/9OCjrIfWB1Y/s1600/POUR_Illustration_03%255B1%255D.png" alt="4 principles: perceivable, operable, understandable, and robust"></section>
+																	<section id="fragments">
+																			<h2>Perceivable</h2> Information and user interface components must be presentable to users in ways they can perceive.
+																			<p>
+																			This means that users must be able to perceive the information being presented (it can't be invisible to all of their senses)</p>
+																	</section>
+
+							<section id="fragments">
+									<h2>Operable</h2> User interface components and navigation must be operable.
+									<p>
+									This means that users must be able to operate the interface (the interface cannot require interaction that a user cannot perform) </p>
+									</section>
+									<section id="fragments">
+									<h2>Understandable</h2> Information and the operation of user interface must be understandable.
+											<p>This means that users must be able to understand the information as well as the operation of the user interface (the content or operation cannot be beyond their understanding)</p>
+									</section>
+										<section id="fragments">
+
+									<h2>Robust</h2> Content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technologies.
+							<p>This means that users must be able to access the content as technologies advance (as technologies and user agents evolve, the content should remain accessible)</p>
+																	</section>
+															</section>
+
+															<section>
+															<h1>Guidelines</h1>
+															<section>
+															Guidelines provide the basic goals that authors should work toward in order to make content more accessible to users with different disabilities. The guidelines are not testable, but provide the framework and overall objectives to help authors understand the success criteria and better implement the techniques.
+</section>
+<section>
+
+<ul>
+	<li>Principle: 1 Perceivable</li>
+	<li>Guidelines: 1.1 Text Alternatives</li>
+</ul>
+<p>
+Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.
+</section>
+</section>
+
+<section>
+	<h1>Success Criteria</h1>
+
+<section>
+Basis for determining conformance are the sucess criteria, not techniques
+<ul>
+	<li>Guidelines: 1.1 Text Alternatives</li>
+	<li>Success Criterion: 1.1.1 Non-text Content</li>
+	<p>
+</ul>
+<p>
+1.1.1 Non-text Content: All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below. (Level A)
+Controls and inputs (covered by 4.1), Time based media (covered by 1.2)
+</section>
+</section>
+<section>
+	<h1>Techniques</h1>
+
+<section>
+Specific situational details
+<ul>
+	<li>Guidelines: 1.1 Text Alternatives</li>
+	<li>Success Criterion: 1.1.1 Non-text Content</li>
+	<li>Techniques: Situation (A) > List of Techniques for Situation</li>
+	Also Intent, Benefits, Examples and Related Resources
+</ul>
+<P>
+	Exmples: data chart, audio recording of speech, linked thumbnail image
+</section>
+</section>
+
+<section>
+	<h1>2. Operable</h2>
+		<section>
+			<h2>Guideline 2.1 Keyboard Accessible</h2>
+Make all functionality available from a keyboard.
+		</section>
+		<section>
+			<h2>Success Criterion 2.1.1 Keyboard</h2>
+(Level A)<br>
+All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.
+<p>
+	<a href="https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html">Understanding Keyboard</a> | <a href="https://www.w3.org/WAI/WCAG21/quickref/#keyboard">How to Meet Keyboard</a>
+		</section>
+		<section>
+<h2>Technique for 2.1.1 Keyboard</h2>
+			<a href="https://www.w3.org/TR/WCAG20-TECHS/G202.html">G202: Ensuring keyboard control for all functionality</a>
+	</section>
+	<section>
+		<h2>Benefits</h2>
+		<ul>
+<li>People who are blind (who cannot use devices such as mice that require eye-hand coordination)</li>
+<li>People with low vision (who may have trouble finding or tracking a pointer indicator on screen)</li>
+<li>Some people with hand tremors find using a mouse very difficult and therefore usually use a keyboard</li>
+</ul>
+	</section>
+</section>
+
+<section>
+	<h1>WCAG Map</h1>
+	<a href="http://intopia.digital/pdf/WCAG2_1Map.pdf">WCAG2_1Map.pdf</a><br>
+	<img src="images/WCAG2_1_Map.png" alt="WCAG 2.1 map">
+</section>
+
+											 <section>
+																 <h1>How To Test WCAG 2.1</h1>
+Testing, testing, testing<p>
+																 <ul>
+																	 <li>Automated testing</li>
+																	 <li>Functional testing</li>
+																	 <li>User testing</li>
+																 </ul>
+															 </section>
+
+
+	<section>
+	<h1>Automated Testing</h1>
+<section>
+Documents and web<br>
+Testing of this type can be done in a web browser, by submitting a single page for testing,
+by automated testing or incorporated into a continual integration test cycle.
+<p>
+Zero errors with automated testing does not equal accessible!
+</section>
+<section>
+<h2>In browser</h2>
+<ul>
+<li><a href="http://wave.webaim.org/extension/">Wave by Web Aim</a></li>
+<li><a href="https://siteimprove.com/company/press/2017/siteimprove-launches-free-google-chrome-accessibility-checker/">Site Improve</a></li>
+<li><a href="https://www.deque.com/products/axe/">aXe by Deque</a></li>
+</ul>
+</section>
+<section>
+<h2>Submit a single page for testing (free)</h2>
+<ul>
+<li><a href="http://wave.webaim.org/">WebAim Wave</a></li>
+<li><a href="http://squizlabs.github.io/HTML_CodeSniffer/">Code Sniffer</a></li>
+</ul>
+</section>
+<section>
+<h2>Sitewide Software as a Service (cost)</h2>
+<ul>
+<li><a href="http://siteimprove.com/">SiteImprove</a></li>
+<li><a href="https://tenon.io/">Tenon</a></li>
+</ul>
+</section>
+<section>
+<h2>Desktop Application (cost)</h2>
+<ul>
+<li><a href="https://www.powermapper.com/">SiteSort by PowerMapper</a></li>
+</ul>
+</section>
+<section>
+<h2>API based</h2>
+<ul>
+<li><a href="http://pa11y.org/">Pa11y</a></li>
+<li><a href="https://tenon.io/documentation/overview.php">Tenion API</a></li>
+<li><a href="http://wave.webaim.org/api/">WebAim Wave API</a></li>
+</ul>
+	</section>
+	<section>
+		<h2>Visual Studio Plugins</h2>
+		<ul>
+			<li><a href="https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebAccessibilityChecker">Web Accessibility Checker</a></li>
+			<li><a href="https://marketplace.visualstudio.com/items?itemName=jeffpetty.TenonHTMLAccessibilityChecker">Tenon HTML Accessibility Checker</a></li>
+		</ul>
+</section>
+</section>
+<section>
+	<h1>Functional testing</h1>
+	Simplest: A checklist of common issues and tests (<a href="https://webaim.org/standards/wcag/WCAG2Checklist.pdf">WebAim Checklist</a> | <a href="https://www.w3.org/TR/2006/WD-WCAG20-20060427/appendixB.html">W3C Checklist</a>)<br>
+	More Complex: Testing  using assited tech against expected behaviours of user interface elements
+	<p>
+	Using assited tech, keyboard only nav, screen readers
+</section>
+<section>
+	<h1>User testing</h1>
+	Accessibility tests in user expereince testing<br>
+	Barriers have been removed<br>
+	Real user experience
+</section>
+
+<section>
+	<h1>Questions?</h1>
+</section>
+
+<section>
+	<h1>WCAG 2.1 User Stories</h1>
+	As a < type of user >, I want < feature > so that < value >
+	<section>
+<p>
+	WCAG Techniques & other resources
+<p>
+More technical: Acceptance Criteria<br>
+IF, WHEN, THEN
+</section>
+<section>
+	'type of user' maps tp WCAG Understanding Success Criterion > Benefits
+</section>
+</section>
+
+			          <section>
+                    <h1>More</h1>
+                    Ryan Leisinger<br>
+                    ryan.leisinger@ofm.wa.gov<br>
+                </section>
+
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+    <!--
+-->
+</html>
