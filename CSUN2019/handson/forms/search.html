@@ -1,0 +1,89 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Super Basic HTML5 Template</title>
+  <meta name="description" content="Super Basic HTML5 Template">
+  <meta name="author" content="Me">
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <h1>Accessible search forms</h1>
+    <h2>Examples of search forms</h2>
+    <p>
+    Example 1 :: With a label<br>
+     <form action="">
+        <fieldset>
+            <legend>Search our site</legend>
+            <div>
+    <label class="hidden-not" for="s">Search Terms</label>
+    <input type="text" id="s" name="s">
+                </div>
+        </fieldset>
+    </form>
+    <a href="#hide">Hide from visual</a>
+    <p>
+    Example 2 :: With a title<br>
+    <form action="">
+        <fieldset>
+            <legend>Search our site</legend>
+            <div>
+                <input id="s" type="text" name="s" title="Search Terms">
+            </div>
+        </fieldset>
+    </form>
+                <p>
+                 Example 3 :: With aria-labeledby<br>
+                     <form action="">
+        <fieldset>
+            <legend>Search our site</legend>
+            <div>
+                <input id="s" type="text" name="s" aria-label="Search Terms">
+                 </div>
+        </fieldset>
+    </form>
+    <hr>
+    <a name="hide"></a>
+    <h2>Extra code goodies</h2>
+    <h3>Hiding text from view</h3>
+    visibility: hidden; and/or display:none;<br>
+These styles will hide text from all users. The text is removed from the visual flow of the page and is ignored by screen readers. Do not use this CSS if you want the content to be read by a screen reader. But DO use it for content you don't want read by screen readers.
+    <p></p>
+width:0px, height:0px or other 0 pixel sizing techniques<br>
+As above, because an element with no height or width is removed from the flow of the page, most screen readers will ignore this content. HTML width and height may give the same result. Do not size content to 0 pixels if you want the content to be read by a screen reader. Content styled with font-size:0px or line-height:0 may work, though the elements would still take horizontal space on the screen. All of these techniques may result in search engine penalties as they may interpreted to be malicious.
+    <p>
+        Absolutely positioning content off-screen<br>
+Using CSS to move hidden elements to a position off-screen is generally accepted as the most useful and accessible method of hiding content visually.
+        <p>
+    .hidden <br>
+{position:absolute;<br>
+left:-10000px;<br>
+top:auto;<br>
+width:1px;<br>
+height:1px;<br>
+overflow:hidden;}<br>
+}<br>
+            <P>OR</P>
+            .accessible_hidden {<br>
+  clip: rect(1px 1px 1px 1px); /* IE 6/7 */<br>
+  clip: rect(1px, 1px, 1px, 1px);<br>
+  height: 1px;<br>
+  overflow: hidden;<br>
+  position: absolute;<br>
+  white-space: nowrap; /* added line */<br>
+  width: 1px;<br>
+}<br>
+<a href="https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe">Beware smushed off-screen accessible text</a></a>
+  <script src="js/scripts.js"></script>
+</body>
+
+</html>
