@@ -1,0 +1,12 @@
+.right {
+    float:right;
+    border: none;
+}
+
+.no-border {
+      border: none;
+}
+
+.reveal h1 {font-size:2em;}
+
+.reveal h2 {font-size:1.4em;}
